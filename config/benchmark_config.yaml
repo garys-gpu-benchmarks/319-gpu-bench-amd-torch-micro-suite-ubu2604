@@ -9,7 +9,6 @@
 sweep:
   profile: smoke
   device_id: 0
-  kernel_type: all
   dtype: fp16
   input_shape:
     smoke: 1,3,32,32

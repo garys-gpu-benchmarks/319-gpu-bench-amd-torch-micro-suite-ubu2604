@@ -2,14 +2,13 @@
 
 ## Execution Description
 
-Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench. output_format: csv Sweep dimensions: device_id, kernel_type, dtype, input_shape, M, N, K, batch_size.
+Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench. output_format: csv Sweep dimensions: device_id, dtype, input_shape, M, N, K, batch_size, warmup_iters.
 
 ## Parameters
 
 | Parameter | CLI Flag | Tested Values | Default | Description |
 | --- | --- | --- | --- | --- |
 | device_id | `--device-id` | smoke=0, baseline=0, extended=0 | 0 | From Parameter list; see Execution Description With Parameters. |
-| kernel_type | `--kernel-type` | smoke=all, baseline=all, extended=all | all | From Parameter list; see Execution Description With Parameters. |
 | dtype | `--dtype` | smoke=fp16, baseline=fp16, extended=fp16 | fp16 | From Parameter list; see Execution Description With Parameters. |
 | input_shape | `--input-shape` | smoke=1,3,32,32, baseline=1,3,224,224, extended=8,3,224,224 | 1,3,224,224 | From Parameter list; see Execution Description With Parameters. |
 | M | `--m` | smoke=64, baseline=4096, extended=4096 | 4096 | From Parameter list; see Execution Description With Parameters. |
