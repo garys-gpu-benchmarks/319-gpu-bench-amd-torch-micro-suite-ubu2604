@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench. output_format: csv Sweep dimensions: device_id, dtype, input_shape, M, N, K, batch_size, warmup_iters.
+Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; kernel_type does not change what runs (both kernels always run); the conv batch is the first number of input_shape. This is not TorchBench. output_format: csv Sweep dimensions: device_id, dtype, input_shape, M, N, K, warmup_iters, num_iterations.
 
 ## Parameters
 
@@ -14,7 +14,6 @@ Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; th
 | M | `--m` | smoke=64, baseline=4096, extended=4096 | 4096 | From Parameter list; see Execution Description With Parameters. |
 | N | `--n` | smoke=64, baseline=4096, extended=4096 | 4096 | From Parameter list; see Execution Description With Parameters. |
 | K | `--k` | smoke=64, baseline=4096, extended=4096 | 4096 | From Parameter list; see Execution Description With Parameters. |
-| batch_size | `--batch-size` | smoke=1, baseline=8, extended=8 | 8 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=2, baseline=10, extended=20 | 10 | From Parameter list; see Execution Description With Parameters. |
 | num_iterations | `--num-iterations` | smoke=5, baseline=800000, extended=1800000 | 800000 | From Parameter list; see Execution Description With Parameters. |
 | seed | `--seed` | smoke=42, baseline=42, extended=42 | 42 | From Parameter list; see Execution Description With Parameters. |
@@ -47,7 +46,7 @@ summary,0,fp16,all,ok,20,10,400,30,8,300
 
 ## Framework
 
-Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench.
+Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; kernel_type does not change what runs (both kernels always run); the conv batch is the first number of input_shape. This is not TorchBench.
 
 ## Installation and Execution Summary
 
@@ -107,10 +106,10 @@ bash run_benchmark.sh --profile extended --validate
 2. `run.error_message` is NULL.
 3. `started_at` and `finished_at` are valid ISO-8601 UTC strings.
 4. All required aggregate metrics in `runs` are non-NULL and finite.
-5. All required aggregate metrics are physically sensible (positive values). Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench.
+5. All required aggregate metrics are physically sensible (positive values). Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; kernel_type does not change what runs (both kernels always run); the conv batch is the first number of input_shape. This is not TorchBench.
 6. At least 2 sample rows exist for the latest `run_id` (sweep coverage).
 7. No sample has `status = 'error'`.
-8. Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; batch_size and kernel_type do not change what runs (both kernels always run). This is not TorchBench.
+8. Runs repository-local scripts/gemm.py and scripts/conv2d.py (PyTorch on ROCm; the same scripts as 219/419) through scripts/collect_torch_micro.py. device_id, dtype, M/N/K, input_shape, warmup_iters, num_iterations, and seed come from yaml; kernel_type does not change what runs (both kernels always run); the conv batch is the first number of input_shape. This is not TorchBench.
 
 ### Baseline / Threshold configuration (`config/benchmark_config.yaml`)
 
