@@ -15,13 +15,13 @@ This PRD.md section is populated from benchmark_specification.json, which is the
 PyTorch Microkernel Suite
 
 ## Execution Summary (Run and Measure)
-Run local scripts/gemm.py for GEMM (C = A x B) and scripts/conv2d.py for Conv2d on yaml M/N/K and input_shape, parse time/TFLOPS/bandwidth, and write kernel CSV rows, to measure PyTorch ROCm microkernel performance. This is not TorchBench run.py
+Run local scripts/gemm.py for GEMM (C = A x B) and scripts/conv2d.py for Conv2d on yaml M/N/K and input_shape, parse time/TFLOPS/bandwidth, and write kernel CSV rows, to measure PyTorch ROCm microkernel performance
 
 ## Main Goal
-Measure micro-level GEMM and Conv2d kernel latency/TFLOPs
+Measure PyTorch GEMM and Conv2d microkernel time, TFLOPS, and bandwidth
 
 ## Validation Objective
-Validates local gemm.py and conv2d.py RESULT parse. Official TorchBench runners are not executed
+Validates GEMM and Conv2d time, TFLOPS, and bandwidth from scripts/gemm.py and scripts/conv2d.py
 
 ## Workload Category
 Compute & Math Kernels

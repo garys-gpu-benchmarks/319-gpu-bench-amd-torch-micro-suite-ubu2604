@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![CI](https://github.com/garys-gpu-benchmarks/319-gpu-bench-amd-torch-micro-suite-ubu2604/actions/workflows/ci.yml/badge.svg)](https://github.com/garys-gpu-benchmarks/319-gpu-bench-amd-torch-micro-suite-ubu2604/actions/workflows/ci.yml)
 
-Measures micro-level GEMM and Conv2d kernel latency/TFLOPs. Workload 319 of the AMD Ubuntu 26.04 bundle.
+Measures PyTorch GEMM and Conv2d microkernel time, TFLOPS, and bandwidth. Workload 319 of the AMD Ubuntu 26.04 bundle.
 
 ## Quick Start
 
@@ -55,15 +55,15 @@ Profile values live in `config/benchmark_config.yaml`.
 ### Notes
 
 - The smoke profile is a quick check with reduced sizes and iteration counts. Use `--baseline` or `--extended` for representative numbers.
-- Repository-local GEMM/Conv2D microkernels, not TorchBench.
+- Repository-local GEMM and Conv2d microkernels.
 - Exclusive GPU preferred.
-- dtype and shape dictate memory and runtime.
+- dtype and shape set memory use and runtime.
 
 ## Output
 
 | Path | Contents |
 |---|---|
-| `results/raw/<timestamp>_<repo>_<host>/` | Raw tool output, `metrics_summary.txt`, and `hardware_info.txt`, `software_info.txt`, `errors_info.txt` |
+| `results/raw/YYYYMMDD_HHMMSSZ_WORKLOAD-<NNN>_SYSTEM-<hostname>/` | Raw tool output, `metrics_summary.txt`, and `hardware_info.txt`, `software_info.txt`, `errors_info.txt` |
 | `results/benchmark.db` | SQLite history of every run |
 | `results/summary.json` | Metrics from the most recent run |
 | `/var/opt/benchmarks/runtime_ledger.csv` | One row per run, shared by every workload on the host |
